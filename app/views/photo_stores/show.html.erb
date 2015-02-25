@@ -1,0 +1,16 @@
+<h2>Album : <%= @photo_store.name %></h2>
+<h4>
+  <%= link_to "Add photos",  new_photo_store_photo_path(@photo_store) %>
+</h4>
+<h4>
+  <%= link_to "Edit",  edit_photo_store_path(@photo_store)%>
+</h4>
+<h4>
+  <%= link_to "Delete", photo_store_path(@photo_store),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+</h4>
+<hr>
+<% @photos.each do |photo| %>
+  <%= link_to photo.name, photo_store_photo_path(@photo_store, photo) %>
+<% end %>

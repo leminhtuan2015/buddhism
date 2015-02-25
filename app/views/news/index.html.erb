@@ -1,0 +1,5 @@
+<h4><%= link_to "Add news", new_news_path%></h4>
+<hr>
+<% @newss.each do |news| %>
+  <%= link_to news.name, news_path(news)%>
+<% end %>

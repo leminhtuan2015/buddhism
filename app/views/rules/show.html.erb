@@ -1,0 +1,7 @@
+<h2>Rule : <%= @rule.rule_store.name%> / <%= @rule.name %></h2>
+
+<%= @rule.name%>
+<%= link_to "Edit.", edit_rule_store_rule_path(@rule.rule_store, @rule) %>
+<%= link_to "Delete.", rule_store_rule_path(@rule.rule_store, @rule),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>

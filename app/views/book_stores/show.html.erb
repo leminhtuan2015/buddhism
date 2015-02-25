@@ -1,0 +1,49 @@
+<h2>Book : <%= @book_store.name%></h2>  
+<hr>
+<div class="bs-example">
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation" class="dropdown">
+        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+          Action
+          <span class="caret"></span>
+        </a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+          <li role="presentation">
+            <%= link_to "Add books",  new_book_store_book_path(@book_store)%>
+          </li>
+          <li role="presentation">
+          	<%= link_to "Edit",  edit_book_store_path(@book_store)%>
+          </li>
+          <li role="presentation">
+          	  <%= link_to "Delete", book_store_path(@book_store),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+          	
+          </li>
+        </ul>
+      </li>
+    </ul> <!-- /pills -->
+  </div>
+<hr>
+<% @book_store.books.each do |book| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= link_to (image_tag book.image, width: "100%", height: "80px"), book_store_book_path(book.book_store, book), 'data-no-turbolink' => 'true' %>
+      <div class="caption center">
+        <h4><%= link_to book.name, book_store_book_path(book.book_store, book), 'data-no-turbolink' => 'true' %></h4>
+        <p><%= book.description %></p>
+        <h6>Author:<%= book.author %></h6>
+        <h6>Translator:<%= book.author %></h6>
+        <p>
+         <%= link_to "Edit.", edit_book_store_book_path(book.book_store, book), class: "btn btn-default" %>
+          <%= link_to "Delete.", book_store_book_path(book.book_store, book), class: "btn btn-default",
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

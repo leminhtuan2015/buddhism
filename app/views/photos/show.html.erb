@@ -1,0 +1,7 @@
+<h2>Album : <%= @photo.photo_store.name%> / <%= @photo.name %></h2>
+
+<%= @photo.name%>
+<%= link_to "Edit.", edit_photo_store_photo_path(@photo.photo_store, @photo) %>
+<%= link_to "Delete.", photo_store_photo_path(@photo.photo_store, @photo),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
