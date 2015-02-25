@@ -1,0 +1,16 @@
+<h2>Rule : <%= @rule_store.name %></h2>
+<h4>
+  <%= link_to "Add rules",  new_rule_store_rule_path(@rule_store) %>
+</h4>
+<h4>
+  <%= link_to "Edit",  edit_rule_store_path(@rule_store)%>
+</h4>
+<h4>
+  <%= link_to "Delete", rule_store_path(@rule_store),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+</h4>
+<hr>
+<% @rules.each do |rule| %>
+  <%= link_to rule.name, rule_store_rule_path(@rule_store, rule) %>
+<% end %>

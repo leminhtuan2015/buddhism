@@ -1,0 +1,6 @@
+<h2>Article : <%= @article.article_store.name%> / <%= @article.name %></h2>
+<%= @article.name%>
+<%= link_to "Edit.", edit_article_store_article_path(@article.article_store, @article) %>
+<%= link_to "Delete.", article_store_article_path(@article.article_store, @article),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>

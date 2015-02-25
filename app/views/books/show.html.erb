@@ -1,0 +1,29 @@
+<h2>
+  Book : <%= @book.book_store.name%> / <%= @book.name %>
+</h2>
+<div class="bs-example">
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation" class="dropdown">
+        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+          Action
+          <span class="caret"></span>
+        </a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+          <li role="presentation">
+            <%= link_to "Edit", edit_book_store_book_path(@book.book_store, @book) %>
+          </li>
+          <li role="presentation">
+            <%= link_to "Delete", book_store_book_path(@book.book_store, @book),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+          	
+          </li>
+        </ul>
+      </li>
+    </ul> <!-- /pills -->
+  </div>
+
+<%= @book.content.html_safe%>

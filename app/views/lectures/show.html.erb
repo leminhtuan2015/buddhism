@@ -1,0 +1,6 @@
+<h2>Lecture : <%= @lecture.lecture_store.name%> / <%= @lecture.name %></h2>
+<%= @lecture.name%>
+<%= link_to "Edit.", edit_lecture_store_lecture_path(@lecture.lecture_store, @lecture) %>
+<%= link_to "Delete.", lecture_store_lecture_path(@lecture.lecture_store, @lecture),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>

@@ -1,0 +1,17 @@
+<h2>Article : <%= @article_store.name%></h2>
+<h4>
+  <%= link_to "Add articles",  new_article_store_article_path(@article_store)%>
+</h4>
+<h4>
+  <%= link_to "Edit",  edit_article_store_path(@article_store)%>
+</h4>
+<h4>
+  <%= link_to "Delete", article_store_path(@article_store),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+</h4>
+  
+<hr>
+<% @articles.each do |article| %>
+  <%= link_to article.name, article_store_article_path(@article_store, article) %>
+<% end %>

@@ -1,0 +1,16 @@
+<nav id="ddmenu">
+  <div class="menu-icon"></div>
+    <ul>
+      <li class="no-sub">
+        <%= link_to  "Home", root_path, class: "top-heading", 'data-no-turbolink' => 'true' %>
+      </li>
+      <li class="no-sub">
+        <%= link_to "Tin tức", news_index_path, class: "top-heading", 'data-no-turbolink' => 'true' %>
+      </li>
+      <%= render 'layouts/menu/lecture' %>
+      <%= render 'layouts/menu/book' %>
+      <%= render 'layouts/menu/rule' %>
+      <%= render 'layouts/menu/article' %>
+      <%= render 'layouts/menu/photo' %>
+      <%= render 'layouts/menu/other' %>
+</nav>

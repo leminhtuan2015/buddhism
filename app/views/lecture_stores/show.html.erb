@@ -1,0 +1,17 @@
+<h2>Lecture : <%= @lecture_store.name%></h2>
+<h4>
+  <%= link_to "Add lecture",  new_lecture_store_lecture_path(@lecture_store)%>
+</h4>
+<h4>
+  <%= link_to "Edit",  edit_lecture_store_path(@lecture_store)%>
+</h4>
+<h4>
+  <%= link_to "Delete", lecture_store_path(@lecture_store),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+</h4>
+  
+<hr>
+<% @lectures.each do |lecture| %>
+  <%= link_to lecture.name, lecture_store_lecture_path(@lecture_store, lecture) %>
+<% end %>

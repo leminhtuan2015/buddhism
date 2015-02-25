@@ -1,0 +1,23 @@
+<h2>Store : <%= link_to @photo_store.name, photo_store_path(@photo_store) %></h2>
+<h4>
+  <%= link_to "Add Album",  new_photo_store_album_path(@photo_store) %>
+</h4>
+<h4>
+  <%= link_to "Edit",  edit_photo_store_path(@photo_store)%>
+</h4>
+<h4>
+  <%= link_to "Delete", photo_store_path(@photo_store),
+                    method: :delete,
+                    data: { confirm: 'Make sure you want to do this?' }%>
+</h4>
+<hr>
+<% @albums.each do |album| %>
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption center">
+        <h4><%= link_to album.name, photo_store_album_path(@photo_store, album), 'data-no-turbolink' => 'true' %></h4>
+        <p><%= album.description %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
